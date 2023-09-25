@@ -1,38 +1,57 @@
-.appname{
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.appname {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.formstyle{
-    
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    
+.formstyle {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.inputstyle{
-    width: 40%;
-    height: 50px;
-    border-radius: 20px;
-    border: none;
-    border-color: rgb(52, 52, 120);
-    outline: none;
-    
+.inputstyle {
+  width: 40%;
+  height: 50px;
+  border-radius: 20px;
+  border: none;
+  border-color: rgb(52, 52, 120);
+  outline: none;
 }
 /* .inputstyle:focus{
     box-shadow: 1000 1000px 1000px 1000px rgba(0, 0, 0, 1),;
 } */
-.addbutton{
-   width: 8%;
-   height: 50px;
-   margin-left: 20px;
-   border-radius: 20px;
-   background-color: rgb(113, 113, 7);
-   color: white;
-   font-size: larger;
-   border: none;
-
-   
+.addbutton {
+  width: 8%;
+  height: 50px;
+  margin-left: 20px;
+  border-radius: 20px;
+  background-color: rgb(113, 113, 7);
+  color: white;
+  font-size: larger;
+  border: none;
+}
+/* .mainDisplay{
+    width:30%;
+    height: 300px;
+    border: solid 1px red;
+    margin: 40px
+    display: flex;
+} */
+.tododisplay {
+  width: 30%;
+  /* height: 300px; */
+  border: solid 1px red;
+  margin: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.singleline {
+  /* display:flex; */
+  /* justify-content: right; */
+  /* align-items: center; */
+}
+.icons {
+  margin-right: 20px;
+  cursor: pointer;
 }
