@@ -27,6 +27,7 @@ type props = {
 };
 
 function TodoList({ todos, setTodos }: props) {
+  console.log(todos);
   return (
     <>
     <div style={{display:"flex"}}>
@@ -40,7 +41,8 @@ function TodoList({ todos, setTodos }: props) {
       <div style={{display:"flex"}}>
       <div style={alltaskbox}>
         <div style={{ width: "90%" }}>
-          {todos.map((todo) => (
+          {todos.filter((a)=>{if(a.isDone==false){return a}}).map((todo) => (
+
             <SingleTodo
               todo={todo}
               key={todo.id}
@@ -49,18 +51,37 @@ function TodoList({ todos, setTodos }: props) {
             />
           ))}
         </div>
+    
       </div>
       
       <div style={alltaskbox}>
-      {todos.map((todo) => (
-            <CompletedTodo
+        <div style={{ width: "90%" }}>
+          {todos.filter((a)=>{if(a.isDone==true){return a}}).map((todo) => (
+
+            <SingleTodo
               todo={todo}
               key={todo.id}
               todos={todos}
-              isDone={todo.isDone}
               setTodos={setTodos}
             />
           ))}
+        </div>
+    
+      </div>
+      <div style={alltaskbox}>
+        <div style={{ width: "90%" }}>
+        {todos.filter((a)=>{a.isDone=="deleted" && {return: a}}).map((todo) => (
+
+            <SingleTodo
+              todo={todo}
+              key={todo.id}
+              todos={todos}
+              setTodos={setTodos}
+              
+            />
+          ))}
+        </div>
+    
       </div>
       </div>
     </>

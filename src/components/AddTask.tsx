@@ -18,6 +18,7 @@ function AddTask({ todo, setTodo, handleAdd }: props) {
           <input
             autoFocus
             value={todo}
+            required
             onChange={(e) => setTodo(e.target.value)}
             type="input"
             className={Style.inputstyle}

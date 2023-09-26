@@ -1,15 +1,114 @@
 
+// import React, { useEffect, useRef, useState } from "react";
+// import { Todo } from "../model";
+// import Style from "./mystyle.module.css";
+// import { AiFillEdit, AiFillDelete } from "react-icons/ai";
+// import { MdDoneAll } from "react-icons/md";
+// const alltasks = {
+//   display: "flex",
+//   justifyContent: "space-between",
+//   border: "solid 1px blue",
+//   width: "100%",
+//   marginTop: "20px",
+//   height: "30px",
+//   alignItems: "center",
+//   backgroundColor: "yellow",
+//   overflow: "auto",
+//   borderRadius: "10px",
+// };
+// type props = {
+//   todo: Todo;
+//   todos: Todo[];
+//   isDone:boolean;
+//   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+// };
+// export const CompletedTodo = ({ todo, todos,isDone, setTodos }: props) => {
+// if(todo.isDone=true){
+//   return(
+//     <p>{todo.todo}</p>
+//       );
+
+// } 
+//   }
+
 import React, { useEffect, useRef, useState } from "react";
 import { Todo } from "../model";
 import Style from "./mystyle.module.css";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { MdDoneAll } from "react-icons/md";
+const alltasks = {
+  display: "flex",
+  justifyContent: "space-between",
+  border: "solid 1px blue",
+  width: "100%",
+  marginTop: "20px",
+  height: "30px",
+  alignItems: "center",
+  backgroundColor: "yellow",
+  overflow: "auto",
+  borderRadius: "10px",
+};
 type props = {
   todo: Todo;
   todos: Todo[];
-  isDone:boolean;
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 };
-export const CompletedTodo = ({ todo, todos,isDone, setTodos }: props) => {
-    
+
+export const CompletedTodo = ({ todo, todos, setTodos }: props) => {
+
+  
+
+  // const [edit, setEdit] = useState<boolean>(false);
+  // const [editTodo, seteditTodo] = useState<string>(todo.todo);
+  const handleDone = (id: number) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+        
+      )
+      
+    );
   };
+  const handleDelete = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+  // const handleEdit = (e: React.FormEvent, id: number) => {
+  //   e.preventDefault();
+  //   setTodos(
+  //     todos.map((todo) => (todo.id === id ? { ...todo, todo: editTodo } : todo))
+  //   );
+  //   setEdit(false);
+  // };
+  return (
+    <div>
+      {/* <form onSubmit={(e) => handleEdit(e, todo.id)} style={alltasks}> */}
+        <div style={alltasks}>
+          {todo.isDone? (
+            <s>{todo.todo}</s>
+          ) : (
+            <span>{todo.todo}</span>
+          )}
+        </div>
+        <div>
+          {/* <span
+            className={Style.icons}
+            onClick={() => {
+              if (!edit && !todo.isDone) {
+                setEdit(!edit);
+              }
+            }}
+          >
+            <AiFillEdit />
+          </span> */}
+          <span className={Style.icons} onClick={() => handleDelete(todo.id)}>
+            <AiFillDelete />
+          </span>
+          <span className={Style.icons} onClick={() => handleDone(todo.id)}>
+            <MdDoneAll />
+          </span>
+        </div>
+      {/* </form> */}
+    </div>
+  );
+};
+
