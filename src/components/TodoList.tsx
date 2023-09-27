@@ -37,6 +37,9 @@ function TodoList({ todos, setTodos }: props) {
       <div style={alltaskheading}>
         COMPLETED TASKS
       </div>
+      <div style={alltaskheading}>
+        Deleted Task
+      </div>
       </div>
       <div style={{display:"flex"}}>
       <div style={alltaskbox}>
@@ -70,16 +73,28 @@ function TodoList({ todos, setTodos }: props) {
       </div>
       <div style={alltaskbox}>
         <div style={{ width: "90%" }}>
-        {todos.filter((a)=>{a.isDone=="deleted" && {return: a}}).map((todo) => (
+        {todos.filter((a)=>{if(a.isDone=="deleted"){return a}}).map((todo) => ( 
 
             <SingleTodo
               todo={todo}
               key={todo.id}
               todos={todos}
               setTodos={setTodos}
+  
               
             />
           ))}
+          {/* {todos.filter((a)=>{if(a.isDone=="deleted"){return a}}).map((todo) => ( 
+
+<CompletedTodo
+  todo={todo}
+  key={todo.id}
+  todos={todos}
+  setTodos={setTodos}
+
+  
+/>
+))} */}
         </div>
     
       </div>

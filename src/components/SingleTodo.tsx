@@ -22,25 +22,23 @@ type props = {
 };
 
 const SingleTodo = ({ todo, todos, setTodos }: props) => {
-
-  
-
   const [edit, setEdit] = useState<boolean>(false);
   const [editTodo, seteditTodo] = useState<string>(todo.todo);
   const handleDone = (id: number) => {
     setTodos(
       todos.map((todo) =>
         todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
-        
       )
-      
     );
-    console.log([...todos])
-    console.log(todos.length)
   };
   const handleDelete = (id: number) => {
-    
     setTodos(todos.filter((todo) => todo.id !== id));
+    // setDeleteTodo("deleted");
+    // setTodos(
+    //   todos.map((todo) =>
+    //     todo.id === id ? { ...todo, isDone: "deleted" } : todo
+    //   )
+    // );
     
   };
   const handleEdit = (e: React.FormEvent, id: number) => {
@@ -50,7 +48,7 @@ const SingleTodo = ({ todo, todos, setTodos }: props) => {
     );
     setEdit(false);
   };
-console.log(editTodo);
+  console.log(editTodo);
   return (
     <div>
       <form onSubmit={(e) => handleEdit(e, todo.id)} style={alltasks}>
