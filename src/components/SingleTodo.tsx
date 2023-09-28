@@ -33,7 +33,6 @@ const SingleTodo = ({ todo, todos, setTodos }: props) => {
   };
   const handleDelete = (id: number) => {
     setTodos(todos.filter((todo) => todo.id !== id));
-    // setDeleteTodo("deleted");
     // setTodos(
     //   todos.map((todo) =>
     //     todo.id === id ? { ...todo, isDone: "deleted" } : todo

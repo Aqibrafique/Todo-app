@@ -73,7 +73,7 @@ function TodoList({ todos, setTodos }: props) {
       </div>
       <div style={alltaskbox}>
         <div style={{ width: "90%" }}>
-        {todos.filter((a)=>{if(a.isDone=="deleted"){return a}}).map((todo) => ( 
+        {/* {todos.filter((a)=>{if(a.isDone=="deleted"){return a}}).map((todo) => ( 
 
             <SingleTodo
               todo={todo}
@@ -83,8 +83,8 @@ function TodoList({ todos, setTodos }: props) {
   
               
             />
-          ))}
-          {/* {todos.filter((a)=>{if(a.isDone=="deleted"){return a}}).map((todo) => ( 
+          ))} */}
+          {todos.filter((a)=>{if(a.isDone=="deleted"){return a}}).map((todo) => ( 
 
 <CompletedTodo
   todo={todo}
@@ -94,7 +94,7 @@ function TodoList({ todos, setTodos }: props) {
 
   
 />
-))} */}
+))}
         </div>
     
       </div>
